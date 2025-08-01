@@ -40,7 +40,7 @@ export default function Layout({ children }: LayoutProps) {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F70d2f78c9c8b4072b06763251e0b03e4%2F0c38efb1ef2d4234ac23243b058badee?format=webp&width=800"
+                src="https://cdn.builder.io/api/v1/image/assets%2F70d2f78c9c8b4072b06763251e0b03e4%2F38b357bcecdb4736aac64852c7efbda0?format=webp&width=800"
                 alt="Vistara Logo"
                 className="w-8 h-8 rounded-lg"
               />
