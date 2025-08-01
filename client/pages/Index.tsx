@@ -63,6 +63,98 @@ export default function Index() {
     { name: "Tapas Tour in La Latina", time: "7:00 PM", price: "€35", category: "Food" }
   ];
 
+  // Dummy image classifier/recognition data
+  const dummyAnalysisResults = {
+    "eiffel_tower": {
+      name: "Eiffel Tower",
+      location: "Paris, France",
+      facts: [
+        "Built in 1889 for the World's Fair, it was initially criticized by Parisians but became the symbol of Paris",
+        "The tower grows about 6 inches taller in summer due to thermal expansion of the iron",
+        "It was the world's tallest structure until 1930 and weighs approximately 10,100 tons"
+      ],
+      bestTimeToVisit: "Early morning (8-10 AM) or evening (6-8 PM) for golden hour photos and fewer crowds",
+      localTips: [
+        "Go early to avoid crowds - arrive by 9 AM for shortest lines",
+        "Book skip-the-line tickets online in advance",
+        "Visit the nearby Trocadéro for the best photo spots",
+        "Evening visits offer stunning city lights views"
+      ]
+    },
+    "colosseum": {
+      name: "Colosseum",
+      location: "Rome, Italy",
+      facts: [
+        "Completed in 80 AD, it could hold 50,000-80,000 spectators and hosted gladiator contests",
+        "The arena floor was covered with sand to absorb blood, and had a complex underground system called the hypogeum",
+        "It's the largest amphitheater ever built and is considered one of the greatest works of Roman engineering"
+      ],
+      bestTimeToVisit: "Early morning (8:30 AM) or late afternoon (4-6 PM) to avoid peak crowds and heat",
+      localTips: [
+        "Go early to avoid crowds - first entry at 8:30 AM is ideal",
+        "Bring water and wear comfortable shoes",
+        "Combine with Roman Forum and Palatine Hill tickets",
+        "Underground and upper levels require special tickets"
+      ]
+    },
+    "sushi": {
+      name: "Traditional Sushi",
+      location: "Japanese Cuisine",
+      facts: [
+        "Originally a method of preserving fish in fermented rice, modern sushi was developed in Tokyo in the 1800s",
+        "The rice should be body temperature when served, and traditionally eaten with hands, not chopsticks",
+        "Master sushi chefs train for decades - it takes 3 years just to learn to properly cook the rice"
+      ],
+      bestTimeToVisit: "Lunch time (11 AM - 2 PM) for fresh morning fish, or dinner (6-8 PM) for full experience",
+      localTips: [
+        "Go early to avoid crowds at popular sushi restaurants",
+        "Eat sushi immediately when served for best taste",
+        "Don't mix wasabi with soy sauce - add it directly to the fish",
+        "Sit at the sushi counter to watch the master at work"
+      ]
+    }
+  };
+
+  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const imageUrl = e.target?.result as string;
+        setUploadedImage(imageUrl);
+        analyzeImage(imageUrl);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleCameraCapture = () => {
+    // Simulate camera capture with a dummy image
+    const dummyImages = [
+      "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=400", // Eiffel Tower
+      "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?w=400", // Colosseum
+      "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=400"  // Sushi
+    ];
+    const randomImage = dummyImages[Math.floor(Math.random() * dummyImages.length)];
+    setUploadedImage(randomImage);
+    analyzeImage(randomImage);
+  };
+
+  const analyzeImage = (imageUrl: string) => {
+    setIsAnalyzing(true);
+    setAnalysisResult(null);
+
+    // Simulate image analysis processing time
+    setTimeout(() => {
+      // Dummy classifier - randomly pick a result based on image
+      const results = Object.values(dummyAnalysisResults);
+      const randomResult = results[Math.floor(Math.random() * results.length)];
+
+      setAnalysisResult(randomResult);
+      setIsAnalyzing(false);
+    }, 3000);
+  };
+
   return (
     <div className="bg-gradient-to-br from-blue-50 via-white to-green-50 pb-20 md:pb-0">
       {/* Hero Section */}
