@@ -43,7 +43,7 @@ export default function Layout({ children }: LayoutProps) {
                 <Languages className="w-5 h-5 text-white" />
               </div>
               <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent" style={{ margin: "2px 0 0 8px" }}>
-                TravelAI
+                Vistara
               </span>
             </Link>
 
