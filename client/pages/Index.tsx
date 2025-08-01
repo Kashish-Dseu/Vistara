@@ -310,45 +310,157 @@ export default function Index() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="border-2 border-dashed border-primary/20 rounded-lg p-8 text-center">
-                  <Camera className="w-16 h-16 mx-auto text-primary/40 mb-4" />
-                  <p className="text-lg font-medium mb-2">Snap a Photo</p>
-                  <p className="text-muted-foreground mb-4">Point your camera at landmarks, food, signs, or anything you're curious about</p>
-                  <div className="flex gap-2 justify-center">
-                    <Button>
-                      <Camera className="w-4 h-4 mr-2" />
-                      Take Photo
-                    </Button>
-                    <Button variant="outline">
-                      <Upload className="w-4 h-4 mr-2" />
-                      Upload Image
-                    </Button>
+                {/* Photo Upload/Capture Section */}
+                {!uploadedImage ? (
+                  <div className="border-2 border-dashed border-primary/20 rounded-lg p-8 text-center">
+                    <Camera className="w-16 h-16 mx-auto text-primary/40 mb-4" />
+                    <p className="text-lg font-medium mb-2">Snap a Photo</p>
+                    <p className="text-muted-foreground mb-4">Point your camera at landmarks, food, signs, or anything you're curious about</p>
+                    <div className="flex gap-2 justify-center">
+                      <Button onClick={handleCameraCapture}>
+                        <Camera className="w-4 h-4 mr-2" />
+                        Take Photo
+                      </Button>
+                      <Button variant="outline" asChild>
+                        <label htmlFor="photo-upload" className="cursor-pointer">
+                          <Upload className="w-4 h-4 mr-2" />
+                          Upload Image
+                        </label>
+                      </Button>
+                      <input
+                        id="photo-upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handlePhotoUpload}
+                        className="hidden"
+                      />
+                    </div>
                   </div>
-                </div>
-                
-                <div className="grid md:grid-cols-3 gap-4">
-                  <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
-                    <CardContent className="p-4 text-center">
-                      <Star className="w-8 h-8 mx-auto text-blue-600 mb-2" />
-                      <h3 className="font-semibold mb-1">What is it?</h3>
-                      <p className="text-sm text-muted-foreground">Instant identification and description</p>
-                    </CardContent>
-                  </Card>
-                  <Card className="bg-gradient-to-br from-green-50 to-green-100">
-                    <CardContent className="p-4 text-center">
-                      <Clock className="w-8 h-8 mx-auto text-green-600 mb-2" />
-                      <h3 className="font-semibold mb-1">Best time to visit</h3>
-                      <p className="text-sm text-muted-foreground">Optimal timing recommendations</p>
-                    </CardContent>
-                  </Card>
-                  <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100">
-                    <CardContent className="p-4 text-center">
-                      <Users className="w-8 h-8 mx-auto text-yellow-600 mb-2" />
-                      <h3 className="font-semibold mb-1">Fun facts</h3>
-                      <p className="text-sm text-muted-foreground">Interesting historical details</p>
-                    </CardContent>
-                  </Card>
-                </div>
+                ) : (
+                  <div className="space-y-4">
+                    {/* Uploaded Image Display */}
+                    <div className="relative">
+                      <img
+                        src={uploadedImage}
+                        alt="Uploaded photo"
+                        className="w-full h-64 object-cover rounded-lg border"
+                      />
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="absolute top-2 right-2 bg-white/80 backdrop-blur-sm"
+                        onClick={() => {
+                          setUploadedImage(null);
+                          setAnalysisResult(null);
+                          setIsAnalyzing(false);
+                        }}
+                      >
+                        <X className="w-4 h-4" />
+                      </Button>
+                    </div>
+
+                    {/* Analysis Loading */}
+                    {isAnalyzing && (
+                      <Card className="border-primary/20 bg-blue-50/50">
+                        <CardContent className="p-6 text-center">
+                          <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
+                          <p className="font-medium mb-2">Analyzing your photo...</p>
+                          <p className="text-sm text-muted-foreground">Using AI to identify landmarks, objects, and cultural context</p>
+                        </CardContent>
+                      </Card>
+                    )}
+
+                    {/* Analysis Results */}
+                    {analysisResult && !isAnalyzing && (
+                      <div className="space-y-4">
+                        <Card className="border-primary/20 bg-gradient-to-br from-blue-50 to-green-50">
+                          <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                              <Star className="w-6 h-6 text-primary" />
+                              {analysisResult.name}
+                            </CardTitle>
+                            <CardDescription>{analysisResult.location}</CardDescription>
+                          </CardHeader>
+                          <CardContent className="space-y-4">
+                            {/* Interesting Facts */}
+                            <div>
+                              <h4 className="font-semibold mb-2 flex items-center gap-2">
+                                <Users className="w-4 h-4 text-yellow-600" />
+                                Interesting Facts
+                              </h4>
+                              <ul className="space-y-2">
+                                {analysisResult.facts.map((fact: string, index: number) => (
+                                  <li key={index} className="flex items-start gap-2 text-sm">
+                                    <Badge variant="outline" className="min-w-[20px] h-5 p-0 flex items-center justify-center text-xs">
+                                      {index + 1}
+                                    </Badge>
+                                    <span>{fact}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            {/* Best Time to Visit */}
+                            <div>
+                              <h4 className="font-semibold mb-2 flex items-center gap-2">
+                                <Clock className="w-4 h-4 text-green-600" />
+                                Best Time to Visit
+                              </h4>
+                              <p className="text-sm bg-green-50 p-3 rounded-lg border border-green-200">
+                                {analysisResult.bestTimeToVisit}
+                              </p>
+                            </div>
+
+                            {/* Local Tips */}
+                            <div>
+                              <h4 className="font-semibold mb-2 flex items-center gap-2">
+                                <MessageCircle className="w-4 h-4 text-blue-600" />
+                                Local Tips
+                              </h4>
+                              <ul className="space-y-2">
+                                {analysisResult.localTips.map((tip: string, index: number) => (
+                                  <li key={index} className="flex items-start gap-2 text-sm">
+                                    <Badge variant="secondary" className="min-w-[20px] h-5 p-0 flex items-center justify-center text-xs">
+                                      💡
+                                    </Badge>
+                                    <span>{tip}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Feature Overview Cards - Show when no image uploaded */}
+                {!uploadedImage && (
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
+                      <CardContent className="p-4 text-center">
+                        <Star className="w-8 h-8 mx-auto text-blue-600 mb-2" />
+                        <h3 className="font-semibold mb-1">What is it?</h3>
+                        <p className="text-sm text-muted-foreground">Instant identification and description</p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-gradient-to-br from-green-50 to-green-100">
+                      <CardContent className="p-4 text-center">
+                        <Clock className="w-8 h-8 mx-auto text-green-600 mb-2" />
+                        <h3 className="font-semibold mb-1">Best time to visit</h3>
+                        <p className="text-sm text-muted-foreground">Optimal timing recommendations</p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100">
+                      <CardContent className="p-4 text-center">
+                        <Users className="w-8 h-8 mx-auto text-yellow-600 mb-2" />
+                        <h3 className="font-semibold mb-1">Fun facts</h3>
+                        <p className="text-sm text-muted-foreground">Interesting historical details</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </TabsContent>
