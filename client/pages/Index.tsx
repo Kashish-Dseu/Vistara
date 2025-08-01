@@ -1,17 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Languages, 
-  Camera, 
-  MapPin, 
-  Calendar, 
-  Phone, 
-  Navigation, 
-  Zap, 
+import {
+  Languages,
+  Camera,
+  MapPin,
+  Calendar,
+  Phone,
+  Navigation,
+  Zap,
   Globe,
   MessageCircle,
   Upload,
@@ -23,7 +29,7 @@ import {
   Star,
   Clock,
   Users,
-  X
+  X,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -38,7 +44,9 @@ export default function Index() {
 
   const handleTranslate = () => {
     // Simulated translation with cultural context
-    setTranslatedText(`¡Hola! ¿Cómo estás? (Cultural note: In Spain, this casual greeting is perfect for most situations. Local slang: You might also hear "¿Qué tal?" which means the same thing)`);
+    setTranslatedText(
+      `¡Hola! ¿Cómo estás? (Cultural note: In Spain, this casual greeting is perfect for most situations. Local slang: You might also hear "¿Qué tal?" which means the same thing)`,
+    );
   };
 
   const handleVoiceTranslation = () => {
@@ -53,67 +61,100 @@ export default function Index() {
   };
 
   const emergencyContacts = [
-    { type: "Embassy", name: "US Embassy Madrid", phone: "+34 91 587 2200", distance: "2.3 km" },
-    { type: "Hospital", name: "Hospital Universitario", phone: "+34 91 586 8000", distance: "1.1 km" },
-    { type: "Police", name: "Policía Nacional", phone: "091", distance: "0.8 km" }
+    {
+      type: "Embassy",
+      name: "US Embassy Madrid",
+      phone: "+34 91 587 2200",
+      distance: "2.3 km",
+    },
+    {
+      type: "Hospital",
+      name: "Hospital Universitario",
+      phone: "+34 91 586 8000",
+      distance: "1.1 km",
+    },
+    {
+      type: "Police",
+      name: "Policía Nacional",
+      phone: "091",
+      distance: "0.8 km",
+    },
   ];
 
   const localEvents = [
-    { name: "Flamenco Night at Casa Patas", time: "9:00 PM", price: "€25", category: "Culture" },
-    { name: "Retiro Park Morning Walk", time: "8:00 AM", price: "Free", category: "Outdoor" },
-    { name: "Tapas Tour in La Latina", time: "7:00 PM", price: "€35", category: "Food" }
+    {
+      name: "Flamenco Night at Casa Patas",
+      time: "9:00 PM",
+      price: "€25",
+      category: "Culture",
+    },
+    {
+      name: "Retiro Park Morning Walk",
+      time: "8:00 AM",
+      price: "Free",
+      category: "Outdoor",
+    },
+    {
+      name: "Tapas Tour in La Latina",
+      time: "7:00 PM",
+      price: "€35",
+      category: "Food",
+    },
   ];
 
   // Dummy image classifier/recognition data
   const dummyAnalysisResults = {
-    "eiffel_tower": {
+    eiffel_tower: {
       name: "Eiffel Tower",
       location: "Paris, France",
       facts: [
         "Built in 1889 for the World's Fair, it was initially criticized by Parisians but became the symbol of Paris",
         "The tower grows about 6 inches taller in summer due to thermal expansion of the iron",
-        "It was the world's tallest structure until 1930 and weighs approximately 10,100 tons"
+        "It was the world's tallest structure until 1930 and weighs approximately 10,100 tons",
       ],
-      bestTimeToVisit: "Early morning (8-10 AM) or evening (6-8 PM) for golden hour photos and fewer crowds",
+      bestTimeToVisit:
+        "Early morning (8-10 AM) or evening (6-8 PM) for golden hour photos and fewer crowds",
       localTips: [
         "Go early to avoid crowds - arrive by 9 AM for shortest lines",
         "Book skip-the-line tickets online in advance",
         "Visit the nearby Trocadéro for the best photo spots",
-        "Evening visits offer stunning city lights views"
-      ]
+        "Evening visits offer stunning city lights views",
+      ],
     },
-    "colosseum": {
+    colosseum: {
       name: "Colosseum",
       location: "Rome, Italy",
       facts: [
         "Completed in 80 AD, it could hold 50,000-80,000 spectators and hosted gladiator contests",
         "The arena floor was covered with sand to absorb blood, and had a complex underground system called the hypogeum",
-        "It's the largest amphitheater ever built and is considered one of the greatest works of Roman engineering"
+        "It's the largest amphitheater ever built and is considered one of the greatest works of Roman engineering",
       ],
-      bestTimeToVisit: "Early morning (8:30 AM) or late afternoon (4-6 PM) to avoid peak crowds and heat",
+      bestTimeToVisit:
+        "Early morning (8:30 AM) or late afternoon (4-6 PM) to avoid peak crowds and heat",
       localTips: [
         "Go early to avoid crowds - first entry at 8:30 AM is ideal",
         "Bring water and wear comfortable shoes",
         "Combine with Roman Forum and Palatine Hill tickets",
-        "Underground and upper levels require special tickets"
-      ]
+        "Underground and upper levels require special tickets",
+      ],
     },
-    "sushi": {
+    sushi: {
       name: "Traditional Sushi",
       location: "Japanese Cuisine",
       facts: [
         "Originally a method of preserving fish in fermented rice, modern sushi was developed in Tokyo in the 1800s",
         "The rice should be body temperature when served, and traditionally eaten with hands, not chopsticks",
-        "Master sushi chefs train for decades - it takes 3 years just to learn to properly cook the rice"
+        "Master sushi chefs train for decades - it takes 3 years just to learn to properly cook the rice",
       ],
-      bestTimeToVisit: "Lunch time (11 AM - 2 PM) for fresh morning fish, or dinner (6-8 PM) for full experience",
+      bestTimeToVisit:
+        "Lunch time (11 AM - 2 PM) for fresh morning fish, or dinner (6-8 PM) for full experience",
       localTips: [
         "Go early to avoid crowds at popular sushi restaurants",
         "Eat sushi immediately when served for best taste",
         "Don't mix wasabi with soy sauce - add it directly to the fish",
-        "Sit at the sushi counter to watch the master at work"
-      ]
-    }
+        "Sit at the sushi counter to watch the master at work",
+      ],
+    },
   };
 
   const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -134,9 +175,10 @@ export default function Index() {
     const dummyImages = [
       "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=400", // Eiffel Tower
       "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?w=400", // Colosseum
-      "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=400"  // Sushi
+      "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=400", // Sushi
     ];
-    const randomImage = dummyImages[Math.floor(Math.random() * dummyImages.length)];
+    const randomImage =
+      dummyImages[Math.floor(Math.random() * dummyImages.length)];
     setUploadedImage(randomImage);
     analyzeImage(randomImage);
   };
@@ -167,8 +209,9 @@ export default function Index() {
               AI Travel Companion
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Translate conversations with cultural context, discover local events, identify landmarks, 
-              and navigate the world with AI-powered insights and emergency assistance.
+              Translate conversations with cultural context, discover local
+              events, identify landmarks, and navigate the world with AI-powered
+              insights and emergency assistance.
             </p>
             <div className="flex flex-wrap justify-center gap-3 mb-8">
               <Badge variant="secondary" className="px-4 py-2">
@@ -219,7 +262,8 @@ export default function Index() {
                   Cultural Translation
                 </CardTitle>
                 <CardDescription>
-                  Get translations with cultural context and local slang explanations
+                  Get translations with cultural context and local slang
+                  explanations
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -227,7 +271,9 @@ export default function Index() {
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 mb-2">
                       <Globe className="w-4 h-4" />
-                      <span className="font-medium">English → {selectedLanguage}</span>
+                      <span className="font-medium">
+                        English → {selectedLanguage}
+                      </span>
                     </div>
                     <Textarea
                       placeholder="Type or speak your message..."
@@ -242,7 +288,11 @@ export default function Index() {
                         onClick={handleVoiceTranslation}
                         className="flex-1"
                       >
-                        {isListening ? <MicOff className="w-4 h-4 mr-2" /> : <Mic className="w-4 h-4 mr-2" />}
+                        {isListening ? (
+                          <MicOff className="w-4 h-4 mr-2" />
+                        ) : (
+                          <Mic className="w-4 h-4 mr-2" />
+                        )}
                         {isListening ? "Stop Listening" : "Voice Input"}
                       </Button>
                       <Button variant="outline" size="sm">
@@ -251,12 +301,14 @@ export default function Index() {
                       </Button>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
                         <MessageCircle className="w-4 h-4" />
-                        <span className="font-medium">Translation with Context</span>
+                        <span className="font-medium">
+                          Translation with Context
+                        </span>
                       </div>
                       <div className="flex gap-1">
                         <Button variant="ghost" size="sm">
@@ -272,7 +324,10 @@ export default function Index() {
                     </div>
                     <div className="min-h-[120px] p-4 bg-gradient-to-br from-blue-50 to-green-50 rounded-lg border">
                       {translatedText || (
-                        <p className="text-muted-foreground italic">Translation will appear here with cultural context and local slang explanations...</p>
+                        <p className="text-muted-foreground italic">
+                          Translation will appear here with cultural context and
+                          local slang explanations...
+                        </p>
                       )}
                     </div>
                     <Button onClick={handleTranslate} className="w-full">
@@ -281,12 +336,14 @@ export default function Index() {
                     </Button>
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {["Spanish", "French", "Japanese", "Arabic"].map((lang) => (
                     <Button
                       key={lang}
-                      variant={selectedLanguage === lang ? "default" : "outline"}
+                      variant={
+                        selectedLanguage === lang ? "default" : "outline"
+                      }
                       size="sm"
                       onClick={() => setSelectedLanguage(lang)}
                     >
@@ -307,7 +364,8 @@ export default function Index() {
                   AI Photo Recognition
                 </CardTitle>
                 <CardDescription>
-                  Take a photo and get instant information, fun facts, and visiting tips
+                  Take a photo and get instant information, fun facts, and
+                  visiting tips
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -316,14 +374,20 @@ export default function Index() {
                   <div className="border-2 border-dashed border-primary/20 rounded-lg p-8 text-center">
                     <Camera className="w-16 h-16 mx-auto text-primary/40 mb-4" />
                     <p className="text-lg font-medium mb-2">Snap a Photo</p>
-                    <p className="text-muted-foreground mb-4">Point your camera at landmarks, food, signs, or anything you're curious about</p>
+                    <p className="text-muted-foreground mb-4">
+                      Point your camera at landmarks, food, signs, or anything
+                      you're curious about
+                    </p>
                     <div className="flex gap-2 justify-center">
                       <Button onClick={handleCameraCapture}>
                         <Camera className="w-4 h-4 mr-2" />
                         Take Photo
                       </Button>
                       <Button variant="outline" asChild>
-                        <label htmlFor="photo-upload" className="cursor-pointer">
+                        <label
+                          htmlFor="photo-upload"
+                          className="cursor-pointer"
+                        >
                           <Upload className="w-4 h-4 mr-2" />
                           Upload Image
                         </label>
@@ -365,8 +429,13 @@ export default function Index() {
                       <Card className="border-primary/20 bg-blue-50/50">
                         <CardContent className="p-6 text-center">
                           <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
-                          <p className="font-medium mb-2">Analyzing your photo...</p>
-                          <p className="text-sm text-muted-foreground">Using AI to identify landmarks, objects, and cultural context</p>
+                          <p className="font-medium mb-2">
+                            Analyzing your photo...
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            Using AI to identify landmarks, objects, and
+                            cultural context
+                          </p>
                         </CardContent>
                       </Card>
                     )}
@@ -380,7 +449,9 @@ export default function Index() {
                               <Star className="w-6 h-6 text-primary" />
                               {analysisResult.name}
                             </CardTitle>
-                            <CardDescription>{analysisResult.location}</CardDescription>
+                            <CardDescription>
+                              {analysisResult.location}
+                            </CardDescription>
                           </CardHeader>
                           <CardContent className="space-y-4">
                             {/* Interesting Facts */}
@@ -390,14 +461,22 @@ export default function Index() {
                                 Interesting Facts
                               </h4>
                               <ul className="space-y-2">
-                                {analysisResult.facts.map((fact: string, index: number) => (
-                                  <li key={index} className="flex items-start gap-2 text-sm">
-                                    <Badge variant="outline" className="min-w-[20px] h-5 p-0 flex items-center justify-center text-xs">
-                                      {index + 1}
-                                    </Badge>
-                                    <span>{fact}</span>
-                                  </li>
-                                ))}
+                                {analysisResult.facts.map(
+                                  (fact: string, index: number) => (
+                                    <li
+                                      key={index}
+                                      className="flex items-start gap-2 text-sm"
+                                    >
+                                      <Badge
+                                        variant="outline"
+                                        className="min-w-[20px] h-5 p-0 flex items-center justify-center text-xs"
+                                      >
+                                        {index + 1}
+                                      </Badge>
+                                      <span>{fact}</span>
+                                    </li>
+                                  ),
+                                )}
                               </ul>
                             </div>
 
@@ -419,14 +498,22 @@ export default function Index() {
                                 Local Tips
                               </h4>
                               <ul className="space-y-2">
-                                {analysisResult.localTips.map((tip: string, index: number) => (
-                                  <li key={index} className="flex items-start gap-2 text-sm">
-                                    <Badge variant="secondary" className="min-w-[20px] h-5 p-0 flex items-center justify-center text-xs">
-                                      💡
-                                    </Badge>
-                                    <span>{tip}</span>
-                                  </li>
-                                ))}
+                                {analysisResult.localTips.map(
+                                  (tip: string, index: number) => (
+                                    <li
+                                      key={index}
+                                      className="flex items-start gap-2 text-sm"
+                                    >
+                                      <Badge
+                                        variant="secondary"
+                                        className="min-w-[20px] h-5 p-0 flex items-center justify-center text-xs"
+                                      >
+                                        💡
+                                      </Badge>
+                                      <span>{tip}</span>
+                                    </li>
+                                  ),
+                                )}
                               </ul>
                             </div>
                           </CardContent>
@@ -443,21 +530,29 @@ export default function Index() {
                       <CardContent className="p-4 text-center">
                         <Star className="w-8 h-8 mx-auto text-blue-600 mb-2" />
                         <h3 className="font-semibold mb-1">What is it?</h3>
-                        <p className="text-sm text-muted-foreground">Instant identification and description</p>
+                        <p className="text-sm text-muted-foreground">
+                          Instant identification and description
+                        </p>
                       </CardContent>
                     </Card>
                     <Card className="bg-gradient-to-br from-green-50 to-green-100">
                       <CardContent className="p-4 text-center">
                         <Clock className="w-8 h-8 mx-auto text-green-600 mb-2" />
-                        <h3 className="font-semibold mb-1">Best time to visit</h3>
-                        <p className="text-sm text-muted-foreground">Optimal timing recommendations</p>
+                        <h3 className="font-semibold mb-1">
+                          Best time to visit
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          Optimal timing recommendations
+                        </p>
                       </CardContent>
                     </Card>
                     <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100">
                       <CardContent className="p-4 text-center">
                         <Users className="w-8 h-8 mx-auto text-yellow-600 mb-2" />
                         <h3 className="font-semibold mb-1">Fun facts</h3>
-                        <p className="text-sm text-muted-foreground">Interesting historical details</p>
+                        <p className="text-sm text-muted-foreground">
+                          Interesting historical details
+                        </p>
                       </CardContent>
                     </Card>
                   </div>
@@ -496,7 +591,7 @@ export default function Index() {
                     </CardContent>
                   </Card>
                 ))}
-                
+
                 <Button className="w-full">
                   <MapPin className="w-4 h-4 mr-2" />
                   Discover More Events Nearby
@@ -519,23 +614,32 @@ export default function Index() {
               </CardHeader>
               <CardContent className="space-y-4">
                 {emergencyContacts.map((contact, index) => (
-                  <Card key={index} className="border border-red-100 bg-red-50/50">
+                  <Card
+                    key={index}
+                    className="border border-red-100 bg-red-50/50"
+                  >
                     <CardContent className="p-4">
                       <div className="flex justify-between items-start mb-2">
                         <div>
                           <h3 className="font-semibold">{contact.name}</h3>
-                          <p className="text-sm text-muted-foreground">{contact.type}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {contact.type}
+                          </p>
                         </div>
                         <Badge variant="outline">{contact.distance}</Badge>
                       </div>
-                      <Button variant="destructive" size="sm" className="w-full">
+                      <Button
+                        variant="destructive"
+                        size="sm"
+                        className="w-full"
+                      >
                         <Phone className="w-4 h-4 mr-2" />
                         Call {contact.phone}
                       </Button>
                     </CardContent>
                   </Card>
                 ))}
-                
+
                 <div className="grid grid-cols-2 gap-4 mt-6">
                   <Button variant="outline">
                     <Navigation className="w-4 h-4 mr-2" />

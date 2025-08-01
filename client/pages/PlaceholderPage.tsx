@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { ArrowLeft, Construction } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -9,7 +15,11 @@ interface PlaceholderPageProps {
   feature: string;
 }
 
-export default function PlaceholderPage({ title, description, feature }: PlaceholderPageProps) {
+export default function PlaceholderPage({
+  title,
+  description,
+  feature,
+}: PlaceholderPageProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
       <div className="container mx-auto px-4 py-16">
@@ -20,17 +30,22 @@ export default function PlaceholderPage({ title, description, feature }: Placeho
                 <Construction className="w-16 h-16 text-primary/40" />
               </div>
               <CardTitle className="text-3xl mb-2">{title}</CardTitle>
-              <CardDescription className="text-lg">{description}</CardDescription>
+              <CardDescription className="text-lg">
+                {description}
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="p-6 bg-gradient-to-br from-blue-50 to-green-50 rounded-lg">
                 <p className="text-muted-foreground">
-                  The <strong>{feature}</strong> feature is coming soon! This will be a dedicated page for {feature.toLowerCase()} functionality.
+                  The <strong>{feature}</strong> feature is coming soon! This
+                  will be a dedicated page for {feature.toLowerCase()}{" "}
+                  functionality.
                 </p>
               </div>
               <div className="space-y-3">
                 <p className="text-sm text-muted-foreground">
-                  Want to see this feature developed? Continue prompting for specific functionality you'd like to see implemented.
+                  Want to see this feature developed? Continue prompting for
+                  specific functionality you'd like to see implemented.
                 </p>
                 <Button asChild className="w-full">
                   <Link to="/">

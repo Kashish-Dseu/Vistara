@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,11 +14,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
-import { 
-  User, 
-  Settings, 
-  Heart, 
-  MessageSquare, 
+import {
+  User,
+  Settings,
+  Heart,
+  MessageSquare,
   HelpCircle,
   Edit,
   Mail,
@@ -28,10 +34,14 @@ import {
   Download,
   ChevronDown,
   ChevronRight,
-  LogOut
+  LogOut,
 } from "lucide-react";
 import { useState } from "react";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 export default function Profile() {
   const [isEditing, setIsEditing] = useState(false);
@@ -45,54 +55,80 @@ export default function Profile() {
     country: "United States",
     preferredLanguage: "English",
     joinDate: "March 2024",
-    avatar: ""
+    avatar: "",
   };
 
   const userStats = {
     translationsUsed: 1247,
     photosAnalyzed: 89,
     countriesVisited: 12,
-    offlineMapsDownloaded: 8
+    offlineMapsDownloaded: 8,
   };
 
   const recentActivity = [
-    { type: "translation", description: "Translated Spanish to English", time: "2 hours ago", location: "Madrid, Spain" },
-    { type: "photo", description: "Analyzed Sagrada Família", time: "5 hours ago", location: "Barcelona, Spain" },
-    { type: "map", description: "Downloaded offline map", time: "1 day ago", location: "Barcelona, Spain" },
-    { type: "emergency", description: "Found nearest hospital", time: "3 days ago", location: "Paris, France" }
+    {
+      type: "translation",
+      description: "Translated Spanish to English",
+      time: "2 hours ago",
+      location: "Madrid, Spain",
+    },
+    {
+      type: "photo",
+      description: "Analyzed Sagrada Família",
+      time: "5 hours ago",
+      location: "Barcelona, Spain",
+    },
+    {
+      type: "map",
+      description: "Downloaded offline map",
+      time: "1 day ago",
+      location: "Barcelona, Spain",
+    },
+    {
+      type: "emergency",
+      description: "Found nearest hospital",
+      time: "3 days ago",
+      location: "Paris, France",
+    },
   ];
 
   const faqs = [
     {
       id: "offline-maps",
       question: "How do offline maps work?",
-      answer: "Offline maps are downloaded to your device when you have internet connection. Once downloaded, you can access them without internet. The maps include street details, landmarks, and points of interest. To download, go to the Maps section and select 'Download Area' while viewing your desired location."
+      answer:
+        "Offline maps are downloaded to your device when you have internet connection. Once downloaded, you can access them without internet. The maps include street details, landmarks, and points of interest. To download, go to the Maps section and select 'Download Area' while viewing your desired location.",
     },
     {
       id: "translation-accuracy",
       question: "How accurate are the cultural translations?",
-      answer: "Our AI translation system uses advanced language models trained on cultural context and local expressions. Accuracy is typically 95%+ for common phrases and cultural nuances. The system continuously learns from user feedback to improve accuracy over time."
+      answer:
+        "Our AI translation system uses advanced language models trained on cultural context and local expressions. Accuracy is typically 95%+ for common phrases and cultural nuances. The system continuously learns from user feedback to improve accuracy over time.",
     },
     {
       id: "data-privacy",
       question: "What data do you collect and store?",
-      answer: "We only collect data necessary to provide our services: location data (when you use maps), translation history (to improve accuracy), and photos you choose to analyze. All data is encrypted and never shared with third parties. You can delete your data anytime from the Privacy section."
+      answer:
+        "We only collect data necessary to provide our services: location data (when you use maps), translation history (to improve accuracy), and photos you choose to analyze. All data is encrypted and never shared with third parties. You can delete your data anytime from the Privacy section.",
     },
     {
       id: "emergency-contacts",
       question: "How are emergency contacts determined?",
-      answer: "Emergency contacts are automatically determined based on your current GPS location. We maintain a database of embassies, hospitals, police stations, and other emergency services worldwide. Contacts are updated in real-time and show the nearest available services."
+      answer:
+        "Emergency contacts are automatically determined based on your current GPS location. We maintain a database of embassies, hospitals, police stations, and other emergency services worldwide. Contacts are updated in real-time and show the nearest available services.",
     },
     {
       id: "photo-analysis",
       question: "What can the photo analysis feature identify?",
-      answer: "Our AI can identify landmarks, monuments, food dishes, street signs, plants, animals, and cultural artifacts. For each item, we provide historical context, cultural significance, best visiting times, and interesting facts. The accuracy depends on image quality and lighting conditions."
+      answer:
+        "Our AI can identify landmarks, monuments, food dishes, street signs, plants, animals, and cultural artifacts. For each item, we provide historical context, cultural significance, best visiting times, and interesting facts. The accuracy depends on image quality and lighting conditions.",
     },
     {
       id: "subscription",
       question: "What features require a subscription?",
-      answer: "Basic translation and photo analysis are free forever. Premium features include unlimited offline map downloads, priority customer support, advanced cultural insights, and real-time local event notifications. Free users get 3 offline map downloads per month."
-    }
+      answer:
+        "Basic translation and photo analysis are free forever. Premium features include unlimited offline map downloads, priority customer support, advanced cultural insights, and real-time local event notifications. Free users get 3 offline map downloads per month.",
+    },
   ];
 
   const handleSaveFeedback = () => {
@@ -107,7 +143,9 @@ export default function Profile() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Profile</h1>
-          <p className="text-muted-foreground">Manage your account, view your travel experience, and get help</p>
+          <p className="text-muted-foreground">
+            Manage your account, view your travel experience, and get help
+          </p>
         </div>
 
         <Tabs defaultValue="profile" className="w-full">
@@ -142,8 +180,8 @@ export default function Profile() {
                         <User className="w-6 h-6 text-primary" />
                         Personal Information
                       </CardTitle>
-                      <Button 
-                        variant="outline" 
+                      <Button
+                        variant="outline"
                         size="sm"
                         onClick={() => setIsEditing(!isEditing)}
                       >
@@ -158,12 +196,19 @@ export default function Profile() {
                       <Avatar className="w-20 h-20">
                         <AvatarImage src={userProfile.avatar} />
                         <AvatarFallback className="bg-gradient-to-br from-blue-500 to-green-500 text-white text-2xl">
-                          {userProfile.name.split(' ').map(n => n[0]).join('')}
+                          {userProfile.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
                         </AvatarFallback>
                       </Avatar>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold">{userProfile.name}</h3>
-                        <p className="text-muted-foreground">{userProfile.email}</p>
+                        <h3 className="text-2xl font-bold">
+                          {userProfile.name}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {userProfile.email}
+                        </p>
                         <Badge variant="secondary" className="mt-2">
                           <Calendar className="w-4 h-4 mr-1" />
                           Member since {userProfile.joinDate}
@@ -225,7 +270,10 @@ export default function Profile() {
                     {isEditing && (
                       <div className="flex gap-2">
                         <Button>Save Changes</Button>
-                        <Button variant="outline" onClick={() => setIsEditing(false)}>
+                        <Button
+                          variant="outline"
+                          onClick={() => setIsEditing(false)}
+                        >
                           Cancel
                         </Button>
                       </div>
@@ -254,7 +302,10 @@ export default function Profile() {
                       Export Data
                     </Button>
                     <Separator />
-                    <Button variant="destructive" className="w-full justify-start">
+                    <Button
+                      variant="destructive"
+                      className="w-full justify-start"
+                    >
                       <LogOut className="w-4 h-4 mr-2" />
                       Sign Out
                     </Button>
@@ -268,19 +319,27 @@ export default function Profile() {
                   <CardContent className="space-y-4">
                     <div className="flex justify-between items-center">
                       <span className="text-sm">Translations</span>
-                      <span className="font-bold">{userStats.translationsUsed.toLocaleString()}</span>
+                      <span className="font-bold">
+                        {userStats.translationsUsed.toLocaleString()}
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm">Photos Analyzed</span>
-                      <span className="font-bold">{userStats.photosAnalyzed}</span>
+                      <span className="font-bold">
+                        {userStats.photosAnalyzed}
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm">Countries Visited</span>
-                      <span className="font-bold">{userStats.countriesVisited}</span>
+                      <span className="font-bold">
+                        {userStats.countriesVisited}
+                      </span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm">Offline Maps</span>
-                      <span className="font-bold">{userStats.offlineMapsDownloaded}</span>
+                      <span className="font-bold">
+                        {userStats.offlineMapsDownloaded}
+                      </span>
                     </div>
                   </CardContent>
                 </Card>
@@ -298,32 +357,55 @@ export default function Profile() {
                     <Star className="w-6 h-6 text-primary" />
                     Your Travel Journey
                   </CardTitle>
-                  <CardDescription>See how Vistara has helped your adventures</CardDescription>
+                  <CardDescription>
+                    See how Vistara has helped your adventures
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="space-y-4">
                     <div>
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm font-medium">Translation Usage</span>
-                        <span className="text-sm text-muted-foreground">{userStats.translationsUsed}/2000</span>
+                        <span className="text-sm font-medium">
+                          Translation Usage
+                        </span>
+                        <span className="text-sm text-muted-foreground">
+                          {userStats.translationsUsed}/2000
+                        </span>
                       </div>
-                      <Progress value={(userStats.translationsUsed / 2000) * 100} className="h-2" />
+                      <Progress
+                        value={(userStats.translationsUsed / 2000) * 100}
+                        className="h-2"
+                      />
                     </div>
-                    
+
                     <div>
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm font-medium">Photo Analysis</span>
-                        <span className="text-sm text-muted-foreground">{userStats.photosAnalyzed}/100</span>
+                        <span className="text-sm font-medium">
+                          Photo Analysis
+                        </span>
+                        <span className="text-sm text-muted-foreground">
+                          {userStats.photosAnalyzed}/100
+                        </span>
                       </div>
-                      <Progress value={(userStats.photosAnalyzed / 100) * 100} className="h-2" />
+                      <Progress
+                        value={(userStats.photosAnalyzed / 100) * 100}
+                        className="h-2"
+                      />
                     </div>
-                    
+
                     <div>
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm font-medium">Countries Explored</span>
-                        <span className="text-sm text-muted-foreground">{userStats.countriesVisited}/50</span>
+                        <span className="text-sm font-medium">
+                          Countries Explored
+                        </span>
+                        <span className="text-sm text-muted-foreground">
+                          {userStats.countriesVisited}/50
+                        </span>
                       </div>
-                      <Progress value={(userStats.countriesVisited / 50) * 100} className="h-2" />
+                      <Progress
+                        value={(userStats.countriesVisited / 50) * 100}
+                        className="h-2"
+                      />
                     </div>
                   </div>
 
@@ -333,15 +415,19 @@ export default function Profile() {
                     <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
                       <CardContent className="p-4 text-center">
                         <Languages className="w-8 h-8 mx-auto text-blue-600 mb-2" />
-                        <p className="font-bold text-2xl text-blue-700">{userStats.translationsUsed}</p>
+                        <p className="font-bold text-2xl text-blue-700">
+                          {userStats.translationsUsed}
+                        </p>
                         <p className="text-sm text-blue-600">Translations</p>
                       </CardContent>
                     </Card>
-                    
+
                     <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
                       <CardContent className="p-4 text-center">
                         <Camera className="w-8 h-8 mx-auto text-green-600 mb-2" />
-                        <p className="font-bold text-2xl text-green-700">{userStats.photosAnalyzed}</p>
+                        <p className="font-bold text-2xl text-green-700">
+                          {userStats.photosAnalyzed}
+                        </p>
                         <p className="text-sm text-green-600">Photos</p>
                       </CardContent>
                     </Card>
@@ -356,21 +442,40 @@ export default function Profile() {
                     <Clock className="w-6 h-6 text-primary" />
                     Recent Activity
                   </CardTitle>
-                  <CardDescription>Your latest interactions with Vistara</CardDescription>
+                  <CardDescription>
+                    Your latest interactions with Vistara
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {recentActivity.map((activity, index) => (
-                    <div key={index} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                    <div
+                      key={index}
+                      className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg"
+                    >
                       <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                        {activity.type === "translation" && <Languages className="w-4 h-4 text-primary" />}
-                        {activity.type === "photo" && <Camera className="w-4 h-4 text-primary" />}
-                        {activity.type === "map" && <MapPin className="w-4 h-4 text-primary" />}
-                        {activity.type === "emergency" && <Shield className="w-4 h-4 text-primary" />}
+                        {activity.type === "translation" && (
+                          <Languages className="w-4 h-4 text-primary" />
+                        )}
+                        {activity.type === "photo" && (
+                          <Camera className="w-4 h-4 text-primary" />
+                        )}
+                        {activity.type === "map" && (
+                          <MapPin className="w-4 h-4 text-primary" />
+                        )}
+                        {activity.type === "emergency" && (
+                          <Shield className="w-4 h-4 text-primary" />
+                        )}
                       </div>
                       <div className="flex-1">
-                        <p className="font-medium text-sm">{activity.description}</p>
-                        <p className="text-xs text-muted-foreground">{activity.location}</p>
-                        <p className="text-xs text-muted-foreground">{activity.time}</p>
+                        <p className="font-medium text-sm">
+                          {activity.description}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {activity.location}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {activity.time}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -388,7 +493,8 @@ export default function Profile() {
                   Share Your Experience
                 </CardTitle>
                 <CardDescription>
-                  Help us improve Vistara by sharing your feedback and suggestions
+                  Help us improve Vistara by sharing your feedback and
+                  suggestions
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -401,7 +507,10 @@ export default function Profile() {
                     onChange={(e) => setFeedback(e.target.value)}
                     className="min-h-[120px]"
                   />
-                  <Button onClick={handleSaveFeedback} disabled={!feedback.trim()}>
+                  <Button
+                    onClick={handleSaveFeedback}
+                    disabled={!feedback.trim()}
+                  >
                     <MessageSquare className="w-4 h-4 mr-2" />
                     Submit Feedback
                   </Button>
@@ -411,22 +520,27 @@ export default function Profile() {
 
                 <div className="space-y-4">
                   <h3 className="font-semibold">Rate Our Features</h3>
-                  
+
                   {[
                     { feature: "Translation Accuracy", rating: 5 },
                     { feature: "Photo Analysis", rating: 4 },
                     { feature: "Offline Maps", rating: 5 },
                     { feature: "Emergency Contacts", rating: 4 },
-                    { feature: "User Interface", rating: 5 }
+                    { feature: "User Interface", rating: 5 },
                   ].map((item, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                    >
                       <span className="font-medium">{item.feature}</span>
                       <div className="flex items-center space-x-1">
                         {Array.from({ length: 5 }).map((_, i) => (
                           <Star
                             key={i}
                             className={`w-4 h-4 ${
-                              i < item.rating ? "text-yellow-400 fill-current" : "text-gray-300"
+                              i < item.rating
+                                ? "text-yellow-400 fill-current"
+                                : "text-gray-300"
                             }`}
                           />
                         ))}
@@ -455,7 +569,9 @@ export default function Profile() {
                   <Collapsible
                     key={faq.id}
                     open={openFaq === faq.id}
-                    onOpenChange={() => setOpenFaq(openFaq === faq.id ? null : faq.id)}
+                    onOpenChange={() =>
+                      setOpenFaq(openFaq === faq.id ? null : faq.id)
+                    }
                   >
                     <CollapsibleTrigger asChild>
                       <Button

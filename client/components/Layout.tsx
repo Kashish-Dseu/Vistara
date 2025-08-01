@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { 
-  Languages, 
-  Camera, 
-  MapPin, 
-  Calendar, 
-  Phone, 
-  Navigation, 
+import {
+  Languages,
+  Camera,
+  MapPin,
+  Calendar,
+  Phone,
+  Navigation,
   Settings,
   Menu,
-  X
+  X,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -44,7 +44,10 @@ export default function Layout({ children }: LayoutProps) {
                 alt="Vistara Logo"
                 className="w-8 h-8 rounded-lg"
               />
-              <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent" style={{ margin: "2px 0 0 8px" }}>
+              <span
+                className="font-bold text-xl bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent"
+                style={{ margin: "2px 0 0 8px" }}
+              >
                 Vistara
               </span>
             </Link>
@@ -79,7 +82,11 @@ export default function Layout({ children }: LayoutProps) {
               className="md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </Button>
           </div>
 
@@ -116,19 +123,35 @@ export default function Layout({ children }: LayoutProps) {
       {/* Bottom Quick Actions (Mobile) */}
       <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm border-t border-primary/10 md:hidden">
         <div className="flex justify-around py-2">
-          <Button variant="ghost" size="sm" className="flex flex-col items-center space-y-1">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="flex flex-col items-center space-y-1"
+          >
             <Camera className="w-5 h-5" />
             <span className="text-xs">Photo</span>
           </Button>
-          <Button variant="ghost" size="sm" className="flex flex-col items-center space-y-1">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="flex flex-col items-center space-y-1"
+          >
             <Calendar className="w-5 h-5" />
             <span className="text-xs">Events</span>
           </Button>
-          <Button variant="ghost" size="sm" className="flex flex-col items-center space-y-1">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="flex flex-col items-center space-y-1"
+          >
             <Phone className="w-5 h-5" />
             <span className="text-xs">Emergency</span>
           </Button>
-          <Button variant="ghost" size="sm" className="flex flex-col items-center space-y-1">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="flex flex-col items-center space-y-1"
+          >
             <MapPin className="w-5 h-5" />
             <span className="text-xs">Location</span>
           </Button>
