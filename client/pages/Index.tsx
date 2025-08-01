@@ -22,7 +22,8 @@ import {
   Share2,
   Star,
   Clock,
-  Users
+  Users,
+  X
 } from "lucide-react";
 import { useState } from "react";
 
