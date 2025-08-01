@@ -65,6 +65,9 @@ export default function Layout({ children }: LayoutProps) {
                   </Button>
                 );
               })}
+              <Button asChild variant="outline">
+                <Link to="/login">Sign In</Link>
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
