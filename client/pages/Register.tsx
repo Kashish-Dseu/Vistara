@@ -86,7 +86,7 @@ export default function Register() {
               <Languages className="w-7 h-7 text-white" />
             </div>
             <span className="font-bold text-3xl bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-              TravelAI
+              Vistara
             </span>
           </div>
           <p className="text-muted-foreground">
