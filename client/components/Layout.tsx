@@ -39,9 +39,11 @@ export default function Layout({ children }: LayoutProps) {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-green-600 rounded-lg flex items-center justify-center">
-                <Languages className="w-5 h-5 text-white" />
-              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F70d2f78c9c8b4072b06763251e0b03e4%2F0c38efb1ef2d4234ac23243b058badee?format=webp&width=800"
+                alt="Vistara Logo"
+                className="w-8 h-8 rounded-lg"
+              />
               <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent" style={{ margin: "2px 0 0 8px" }}>
                 Vistara
               </span>
