@@ -31,6 +31,9 @@ export default function Index() {
   const [translationText, setTranslationText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState("Spanish");
+  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [analysisResult, setAnalysisResult] = useState<any | null>(null);
 
   const handleTranslate = () => {
     // Simulated translation with cultural context
