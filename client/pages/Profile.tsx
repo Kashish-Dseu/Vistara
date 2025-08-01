@@ -298,7 +298,7 @@ export default function Profile() {
                     <Star className="w-6 h-6 text-primary" />
                     Your Travel Journey
                   </CardTitle>
-                  <CardDescription>See how TravelAI has helped your adventures</CardDescription>
+                  <CardDescription>See how Vistara has helped your adventures</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="space-y-4">
@@ -356,7 +356,7 @@ export default function Profile() {
                     <Clock className="w-6 h-6 text-primary" />
                     Recent Activity
                   </CardTitle>
-                  <CardDescription>Your latest interactions with TravelAI</CardDescription>
+                  <CardDescription>Your latest interactions with Vistara</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {recentActivity.map((activity, index) => (
@@ -388,7 +388,7 @@ export default function Profile() {
                   Share Your Experience
                 </CardTitle>
                 <CardDescription>
-                  Help us improve TravelAI by sharing your feedback and suggestions
+                  Help us improve Vistara by sharing your feedback and suggestions
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -396,7 +396,7 @@ export default function Profile() {
                   <Label htmlFor="feedback">Your Feedback</Label>
                   <Textarea
                     id="feedback"
-                    placeholder="Tell us about your experience with TravelAI. What features do you love? What could be better? Any suggestions for new features?"
+                    placeholder="Tell us about your experience with Vistara. What features do you love? What could be better? Any suggestions for new features?"
                     value={feedback}
                     onChange={(e) => setFeedback(e.target.value)}
                     className="min-h-[120px]"
@@ -447,7 +447,7 @@ export default function Profile() {
                   Frequently Asked Questions
                 </CardTitle>
                 <CardDescription>
-                  Find answers to common questions about TravelAI
+                  Find answers to common questions about Vistara
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
