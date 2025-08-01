@@ -24,7 +24,7 @@ export default function Layout({ children }: LayoutProps) {
   const navigation = [
     { name: "Home", href: "/", icon: Languages },
     { name: "Maps", href: "/maps", icon: Navigation },
-    { name: "Settings", href: "/settings", icon: Settings },
+    { name: "Profile", href: "/profile", icon: Settings },
   ];
 
   const isActive = (path: string) => {
